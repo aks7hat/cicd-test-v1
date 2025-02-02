@@ -29,8 +29,8 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Pull Image from docker hub
-        run: docker pull ${{secrets.DOCKER_USERNAME}}/github-ci-cd-demo:latest
+        run: sudo docker pull ${{secrets.DOCKER_USERNAME}}/github-ci-cd-demo:latest
       - name: Delete old container
-        run: docker rm -f github-ci-cd-demo
+        run: sudo docker rm -f github-ci-cd-demo
       - name: Run docker container
-        run: docker run -d -p 8080:8080 --name github-ci-cd-demo ${{secrets.DOCKER_USERNAME}}/github-ci-cd-demo:latest
+        run: sudo docker run -d -p 8080:8080 --name github-ci-cd-demo ${{secrets.DOCKER_USERNAME}}/github-ci-cd-demo:latest
